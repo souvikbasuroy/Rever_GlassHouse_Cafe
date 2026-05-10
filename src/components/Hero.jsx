@@ -54,6 +54,24 @@ const Hero = ({ isLoading }) => {
           className="flex flex-col space-y-8 order-2 lg:order-1"
         >
 
+          {/* Demo Disclaimer Box */}
+          <motion.div 
+            variants={item}
+            className="inline-flex items-center gap-4 px-5 py-3 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 w-fit mb-4 group hover:border-cafe-red/30 transition-colors"
+          >
+            <div className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cafe-red opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-cafe-red"></span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Project Notice</span>
+              <p className="text-white text-xs leading-relaxed">
+                This is a <span className="text-cafe-red font-bold underline underline-offset-4">Demo Website</span> for portfolio purposes. 
+                Built with precision by <span className="text-yellow-500 font-bold">Souvik Basu Roy</span>.
+              </p>
+            </div>
+          </motion.div>
+
           {/* Welcome Text */}
           <motion.div variants={item}>
             <span className="text-white uppercase tracking-[0.3em] text-sm font-cookie block mb-6">
