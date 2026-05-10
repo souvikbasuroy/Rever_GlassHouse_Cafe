@@ -101,7 +101,7 @@ const Menu = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
           <AnimatePresence mode="wait">
             {menuData[activeCategory].map((item, index) => (
               <motion.div
@@ -116,25 +116,24 @@ const Menu = () => {
                   mass: 1,
                   delay: index * 0.1
                 }}
-                className="group relative bg-white rounded-[30px] overflow-hidden border border-gray-100 hover:border-cafe-red/30 shadow-sm hover:shadow-2xl transition-all duration-700 hover:-translate-y-4 cursor-pointer"
+                className="group relative bg-white rounded-[20px] md:rounded-[30px] overflow-hidden border border-gray-100 hover:border-cafe-red/30 shadow-sm hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 md:hover:-translate-y-4 cursor-pointer"
               >
-                <div className="h-64 overflow-hidden relative">
+                <div className="h-40 md:h-64 overflow-hidden relative">
                   <div className="absolute inset-0 bg-black/10 z-10 group-hover:bg-transparent transition-colors duration-500" />
                   <img
                     src={item.img}
                     alt={item.name}
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                   />
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1 z-20 shadow-md">
-                    <Star size={12} className="fill-yellow-500 text-yellow-500" />
-                    <span className="text-xs font-bold text-black">{item.rating}</span>
+                  <div className="absolute top-2 right-2 md:top-4 md:right-4 bg-white/90 backdrop-blur-md px-2 md:px-3 py-0.5 md:py-1 rounded-full flex items-center gap-1 z-20 shadow-md">
+                    <Star size={10} md:size={12} className="fill-yellow-500 text-yellow-500" />
+                    <span className="text-[10px] md:text-xs font-bold text-black">{item.rating}</span>
                   </div>
                 </div>
-                <div className="p-6 relative z-20 bg-white">
-                  <h3 className="text-xl font-bold font-serif text-black mb-2 group-hover:text-cafe-red transition-colors">{item.name}</h3>
-                  <div className="flex justify-between items-center mt-4">
-                    <span className="text-cafe-red font-bold text-xl">{item.price}</span>
-                    
+                <div className="p-3 md:p-6 relative z-20 bg-white">
+                  <h3 className="text-sm md:text-xl font-bold font-serif text-black mb-1 md:mb-2 group-hover:text-cafe-red transition-colors line-clamp-1">{item.name}</h3>
+                  <div className="flex justify-between items-center mt-2 md:mt-4">
+                    <span className="text-cafe-red font-bold text-base md:text-xl">{item.price}</span>
                   </div>
                 </div>
               </motion.div>

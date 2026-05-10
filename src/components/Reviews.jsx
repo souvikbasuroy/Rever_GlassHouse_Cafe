@@ -50,7 +50,7 @@ const Reviews = () => {
   return (
     <section
       id="reviews"
-      className="relative bg-black min-h-screen flex items-center overflow-hidden"
+      className="relative bg-black min-h-screen py-32 md:py-40 flex items-center overflow-hidden"
     >
       {/* Background Video */}
       <div className="absolute inset-0 z-0 p-4">
@@ -86,7 +86,7 @@ const Reviews = () => {
           <div className="w-24 h-1 bg-cafe-red mx-auto" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
           {reviews.map((rev, idx) => (
             <motion.div
               key={rev.id}
@@ -100,24 +100,24 @@ const Reviews = () => {
                 delay: idx * 0.2
               }}
               whileHover={{ scale: 1.02 }}
-              className={`glass p-8 rounded-[30px] border-white/10 relative group hover:bg-white/10 transition-all duration-500 ${idx === 3 || idx === 4 ? 'lg:translate-x-1/2' : ''
+              className={`glass p-6 md:p-8 rounded-[25px] md:rounded-[30px] border-white/10 relative group hover:bg-white/10 transition-all duration-500 ${idx === 3 || idx === 4 ? 'lg:translate-x-1/2' : ''
                 }`}
             >
-              <Quote className="absolute top-6 right-8 text-white/10 group-hover:text-cafe-red/20 transition-colors" size={40} />
+              <Quote className="absolute top-4 right-6 md:top-6 md:right-8 text-white/10 group-hover:text-cafe-red/20 transition-colors" size={30} md:size={40} />
 
-              <div className="flex items-center gap-4 mb-6">
-                <img src={rev.img} alt={rev.name} className="w-16 h-16 rounded-full border-2 border-cafe-red p-1" />
+              <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
+                <img src={rev.img} alt={rev.name} className="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-cafe-red p-0.5 md:p-1" />
                 <div>
-                  <h4 className="font-bold text-white text-lg">{rev.name}</h4>
-                  <div className="flex gap-1">
+                  <h4 className="font-bold text-white text-base md:text-lg">{rev.name}</h4>
+                  <div className="flex gap-0.5 md:gap-1">
                     {[...Array(rev.rating)].map((_, i) => (
-                      <Star key={i} size={14} className="fill-cafe-yellow text-cafe-yellow" />
+                      <Star key={i} size={12} className="fill-cafe-yellow text-cafe-yellow" />
                     ))}
                   </div>
                 </div>
               </div>
 
-              <p className="text-gray-300 leading-relaxed font-light italic">
+              <p className="text-gray-300 text-sm md:text-lg leading-relaxed font-light italic">
                 "{rev.review}"
               </p>
             </motion.div>

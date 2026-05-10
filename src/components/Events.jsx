@@ -39,25 +39,27 @@ const Events = () => {
   return (
     <section
       id="events"
-      className="relative bg-black min-h-screen py-24 flex items-center overflow-hidden"
+      className="relative bg-black min-h-screen py-32 md:py-40 flex items-center overflow-hidden"
     >
-      {/* Video Background */}
-      <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full h-full object-cover brightness-80 grayscale-[0.2]"
-        >
-          <source src="/reservation.mp4" type="video/mp4" />
-        </video>
-        {/* Overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/70" />
+      {/* Video Background with Frame */}
+      <div className="absolute inset-0 z-0 p-4 md:p-8">
+        <div className="relative w-full h-full rounded-[30px] md:rounded-[60px] overflow-hidden border border-white/10">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover brightness-80 grayscale-[0.2]"
+          >
+            <source src="/reservation.mp4" type="video/mp4" />
+          </video>
+          {/* Overlay for better text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80" />
+        </div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-20">
+        <div className="text-center mb-24">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -75,7 +77,7 @@ const Events = () => {
           <div className="w-32 h-[1px] bg-white/30 mx-auto" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
           {events.map((event, idx) => (
             <motion.div
               key={idx}
@@ -83,12 +85,12 @@ const Events = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1, duration: 0.6 }}
-              whileHover={{ y: -10 }}
+              whileHover={{ y: -5 }}
               onClick={() => setSelectedImage(event.image)}
               className="cursor-pointer group relative"
             >
               {/* Image Container with Glow and Zoom */}
-              <div className="relative overflow-hidden rounded-[30px] aspect-[4/5] border border-white/10 transition-all duration-500 group-hover:border-white/30 group-hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)] shadow-2xl">
+              <div className="relative overflow-hidden rounded-[20px] md:rounded-[30px] aspect-[3/4] md:aspect-[4/5] border border-white/10 transition-all duration-500 group-hover:border-white/30 group-hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)] shadow-2xl">
                 
                 {/* Glow Effect Layer */}
                 <div 
@@ -98,40 +100,40 @@ const Events = () => {
                     zIndex: 1
                   }}
                 />
-
+ 
                 <motion.img
                   src={event.image}
                   alt={event.name}
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-125"
                 />
-
+ 
                 {/* Caption Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent z-10 flex flex-col justify-end p-8">
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent z-10 flex flex-col justify-end p-4 md:p-8">
                   <motion.div 
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 + idx * 0.1 }}
                   >
-                    <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-cafe-yellow transition-colors duration-300">
+                    <h3 className="text-sm md:text-2xl font-bold text-white mb-1 md:mb-3 group-hover:text-cafe-yellow transition-colors duration-300">
                       {event.name}
                     </h3>
                     
-                    <div className="flex flex-col gap-2">
-                      <div className="flex items-center gap-2 text-gray-300 text-sm">
-                        <Calendar size={14} className="text-cafe-red" />
+                    <div className="flex flex-col gap-1 md:gap-2">
+                      <div className="flex items-center gap-1 md:gap-2 text-gray-300 text-[10px] md:text-sm">
+                        <Calendar size={10} className="text-cafe-red" />
                         <span>{event.date}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-gray-300 text-sm">
-                        <Clock size={14} className="text-cafe-red" />
+                      <div className="flex items-center gap-1 md:gap-2 text-gray-300 text-[10px] md:text-sm">
+                        <Clock size={10} className="text-cafe-red" />
                         <span>{event.time}</span>
                       </div>
                     </div>
                   </motion.div>
                 </div>
-
+ 
                 {/* Interactive Dynamic Flow Indicator */}
-                <div className="absolute top-6 right-6 z-20">
-                  <div className="w-2 h-2 rounded-full bg-cafe-red animate-ping" />
+                <div className="absolute top-3 right-3 md:top-6 md:right-6 z-20">
+                  <div className="w-1.5 h-1.5 rounded-full bg-cafe-red animate-ping" />
                 </div>
               </div>
             </motion.div>
